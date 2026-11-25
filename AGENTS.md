@@ -4,13 +4,20 @@
 
 Rebuild https://www.centromilitar.org.uy/ with a modern, responsive design and maintainable technology while preserving all existing content and functionality. The current site is the reference, not an already completed inventory.
 
+## Scope and stack
+
+- The first phase is a static site built with Astro and TypeScript, using local content. Content changes require updating the files and rebuilding the site.
+- A future second phase may add administrator-managed content. Keep that integration possible without implementing the administration interface in the first phase.
+- The first phase remains in Spanish and excludes multiple organizations, user roles, offline operation, additional languages, and multiple currencies unless needed to preserve an existing capability.
+- The initial backlog is tracked in GitHub issues #1–#8 and remains subject to the complete source-site inventory.
+
 ## Before implementation
 
 - Inventory the live site recursively, including navigation, pages, text, images, documents, downloads, contact details, external links, and observable interactions. Record source URLs and map each item to its destination in the new site.
 - Inspect linked documents and image-based content where accessible. Record inaccessible, broken, outdated, or ambiguous items and obtain clarification instead of silently omitting or inventing content.
 - Preserve Spanish content and its meaning, including contact details, eligibility requirements, schedules, prices, and document links. Do not invent missing facts or silently correct apparent errors; flag them for review.
 - The homepage currently points to cultural membership, three lodging locations, document downloads, the board, services, sports, and member news. Treat this as a starting point, not a complete list.
-- Identify the existing technology and project conventions before selecting a stack. If none exists, recommend a current, maintainable stack based on actual content management, hosting, and integration needs; document the decision and tradeoffs before implementation.
+- Confirm project conventions and hosting needs before implementation. The chosen static stack avoids an initial CMS but requires a rebuild for content updates; assess the future CMS integration when its requirements are defined.
 
 ## Implementation principles
 

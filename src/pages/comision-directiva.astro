@@ -1,0 +1,38 @@
+---
+const base = '/legacy/NovedadesComisionDirectiva/';
+const source = 'https://www.centromilitar.org.uy/NovedadesComisionDirectiva/imag/';
+const documents = [
+  ['Estatuto del Centro Militar', 'Estatuto.pdf'],
+  ['Reglamento Gral. y Electoral 2013', 'ReglamentoGralyElectoral2013.pdf'],
+  ['Acta de la Asamble General 178 - 2023', 'ActadelaAsambleGeneral178-2023.pdf'],
+];
+const updates = [
+  { title: 'Asamblea General 2026', image: 'AsambleaGeneral.jpg', target: `${base}imag/AsambleaGeneral.jpg`, action: 'Ver imagen' },
+  { title: 'Parlamento Europeo DD.HH. 2026', image: 'DerechosHumanos.jpg', target: `${source}DerechosHumanos.mp4`, action: 'Ver video' },
+  { title: '14 de abril 2026', image: '14deAbril.jpg', target: `${source}14deabril2026.mp4`, action: 'Ver video' },
+  { title: 'Mensaje 18 de mayo 2026', image: 'MENSAJE18DEMAYO2026.jpg', target: `${base}imag/MENSAJE%2018%20DE%20MAYO%202026.pdf`, action: 'Ver documento PDF' },
+];
+---
+<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Documentos y comunicaciones de la Comisión Directiva del Centro Militar." /><title>Comisión Directiva | Centro Militar</title></head>
+<body><a class="skip" href="#contenido">Ir al contenido</a>
+  <header class="header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Centro Militar, inicio"><img src="/images/escudo.jfif" alt="" /><span>Centro Militar<small>Montevideo · Uruguay</small></span></a>
+    <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/alojamientos/">Alojamientos</a><a href="/documentos/">Documentos</a><a href="/comision-directiva/" aria-current="page">Comisión Directiva</a><a href="/servicios/">Servicios</a><a href="/actividades-deportivas/">Deportes</a><a href="/sociocultural/">Sociocultural</a><a href="/#contacto">Contacto</a></nav></div></header>
+  <main id="contenido"><section class="intro"><div class="wrap"><p class="eyebrow">Centro Militar</p><h1>Comisión Directiva</h1><p>Documentos y comunicaciones para nuestros socios.</p></div></section>
+    <div class="wrap content"><section><h2>Documentos</h2><ul class="list">{documents.map(([label,file]) => <li><a href={`${base}${file}`} download><span>{label}</span><span class="action">Descargar · PDF</span></a></li>)}</ul></section>
+      <section><h2>Audios</h2><img class="audio-image" src={`${base}imag/LaHoradelCM.jpg`} alt="La hora del Centro Militar" loading="lazy" /><ul class="list"><li><a href={`${source}LaHoradelCM.mp3`}><span>La hora del Centro Militar</span><span class="action">Escuchar audio</span></a></li><li><a href={`${source}LaHoradelCM_ProgNro27.mp3`}><span>La hora del Centro Militar · Programa n.º 27</span><span class="action">Escuchar audio</span></a></li></ul></section>
+      <section><h2>Comunicaciones</h2><div class="cards">{updates.map((item) => <article><a href={item.target}><img src={`${base}imag/${item.image}`} alt="" loading="lazy" /><div class="card-copy"><h3>{item.title}</h3><span class="action">{item.action}</span></div></a></article>)}</div></section>
+    </div></main><footer><div class="wrap footer-inner"><span>Centro Militar · Montevideo, Uruguay</span><a href="#contenido">Volver al inicio</a></div></footer>
+</body></html>
+<style is:global>
+  :root { color-scheme: light; font-family: Arial,sans-serif; color: #142b3f; background: white; } * { box-sizing: border-box; } html { scroll-behavior: smooth; } body { margin: 0; line-height: 1.65; } a { color: inherit; } a:focus-visible { outline: 3px solid #c09537; outline-offset: 4px; }
+  .skip { position: absolute; left: 1rem; top: -5rem; z-index: 5; padding: .6rem 1rem; background: white; } .skip:focus { top: 1rem; } .wrap { width: min(1180px, calc(100% - 3rem)); margin: 0 auto; }
+  .header { border-bottom: 1px solid #e0e7ea; } .header-inner { min-height: 90px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; } .brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; font: 400 1.45rem/1.15 Georgia,serif; } .brand img { width: 72px; height: 72px; object-fit: contain; } .brand small { display: block; margin-top: .35rem; font: 700 .65rem/1.2 Arial,sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #647686; }
+  nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: .95rem; font-weight: 700; } nav a { text-decoration: none; } nav a:hover,nav a[aria-current] { text-decoration: underline; text-underline-offset: .3em; }
+  .intro { background: #112f48; color: white; padding: 4.5rem 0; } .intro p:not(.eyebrow) { color: #e6edf1; font-size: 1.1rem; } .eyebrow { color: #e0c781; text-transform: uppercase; letter-spacing: .16em; font-size: .8rem; font-weight: 700; } h1,h2 { font-family: Georgia,serif; font-weight: 400; line-height: 1.12; } h1 { font-size: clamp(2.7rem,5vw,4.7rem); margin: .7rem 0 1rem; } h2 { font-size: clamp(2rem,3vw,2.8rem); margin: 0 0 1.5rem; }
+  .content { padding: 4.5rem 0 5rem; } section + section { margin-top: 4rem; } .list { list-style: none; margin: 0; padding: 0; border-top: 1px solid #dce4e7; } .list li { border-bottom: 1px solid #dce4e7; } .list a { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.1rem .5rem; text-decoration: none; } .list a:hover,article a:hover { background: #f1f5f6; } .action { color: #34566b; font-size: .9rem; font-weight: 700; }
+  .audio-image { display: block; width: min(100%, 282px); height: auto; margin-bottom: 1.5rem; }
+  .cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; } article { border: 1px solid #dce4e7; } article a { display: block; height: 100%; text-decoration: none; } article img { display: block; width: 100%; height: 240px; object-fit: contain; background: #f1f5f6; } .card-copy { padding: 1.25rem; } h3 { font: 400 1.4rem Georgia,serif; margin: 0 0 .6rem; }
+  footer { background: #0c2538; color: #e6edf1; padding: 1.6rem 0; font-size: .9rem; } .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  @media (max-width: 720px) { .header-inner { padding: 1rem 0; align-items: flex-start; flex-direction: column; gap: 1rem; } .brand img { width: 64px; height: 64px; } .content { padding-top: 3rem; padding-bottom: 3.5rem; } .list a { align-items: flex-start; flex-direction: column; gap: .2rem; } .cards { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
